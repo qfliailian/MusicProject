@@ -3,7 +3,7 @@
 
 //1）引入所有需要的包
 var gulp = require('gulp');//本地安装为了在这里引入gulp
-// var sass = require('gulp-sass');
+var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var htmlmin = require('gulp-htmlmin');
 var  jsmin = require('gulp-uglify');
@@ -16,13 +16,13 @@ var browserSync = require('browser-sync').create();
 // 2)编写任务
 
 // // 编译sass文件，生成压缩与未压缩的css文件
-// gulp.task('buildSass',function(){
-// 	// 匹配文件
-// 	return gulp.src('./app/sass/*.scss')
+gulp.task('buildSass',function(){
+	// 匹配文件
+	return gulp.src('./app/sass/*.scss')
 
-// 		// 未压缩文件
-// 		.pipe(sass({outputStyle:'expanded'}))
-// 		.pipe(gulp.dest('./app/css'))
+		// 未压缩文件
+		.pipe(sass({outputStyle:'expanded'}))
+		.pipe(gulp.dest('./app/css'))
 		
 // 		// 压缩文件
 // 		.pipe(sass({outputStyle:'compressed'}))
@@ -30,14 +30,14 @@ var browserSync = require('browser-sync').create();
 // //		.pipe(rename({suffix:'.min'}))
 // 		.pipe(gulp.dest('./dist/css'))
 
-// 		//浏览器同步的任务在css文件生成之后执行
-// 		.pipe(browserSync.reload({stream:true}));
-// });
+		//浏览器同步的任务在css文件生成之后执行
+		.pipe(browserSync.reload({stream:true}));
+});
 
-// // 监听sass文件修改，并自动编译
-// gulp.task('jtSass',function(){
-// 	gulp.watch('./app/sass/*.scss',['buildSass']);
-// });
+// 监听sass文件修改，并自动编译
+gulp.task('jtSass',function(){
+	gulp.watch('./app/sass/*.scss',['buildSass']);
+});
 
 // 合并压缩css
 gulp.task('cssmin',function(){

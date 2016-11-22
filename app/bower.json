@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "homepage": "https://github.com/qfliailian/MusicProject",
+  "authors": [
+    "liailian <18306679493@163.com>"
+  ],
+  "description": "project",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "plugin",
+    "test",
+    "tests"
+  ]
+}
